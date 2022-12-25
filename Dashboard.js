@@ -6,25 +6,25 @@ const Dashboard=({navigation})=>{
         <View style={style.container}>
         <Text style={{marginBottom:20}}>Details Screen</Text>
 
-        <View style={style.btn}>
+        {/* <View style={style.btn}>
         <Button
         style={style.btn}
         title="Cari Data"
-        onPress={() => navigation.navigate('CariData')}/>
-        </View>
+        onPress={() => navigation.navigate('')}/>
+        </View> */}
 
         <View style={style.btn}>
         <Button 
         style={style.btn}
         title="Lihat Data" 
-        onPress={() => navigation.navigate('LihatData')} />
+        onPress={() => navigation.navigate('Lihat')} />
         </View>
 
         <View style={style.btn}>
         <Button
         style={style.btn}
         title="Tambah Data"
-        onPress={() => navigation.navigate('TambahData')}/>
+        onPress={() => navigation.navigate('Tambah')}/>
         </View>
   </View>
 );

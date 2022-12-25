@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import { style } from './Style';
-import {Card} from 'react-native-paper';
+import {Card, TextInput} from 'react-native-paper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 class Lihat extends Component {
@@ -14,7 +14,9 @@ class Lihat extends Component {
       prodi:'',
       no_telp:'',
       alamat:'',
-      listData:[]
+      listData:[],
+      userFiltered:[],
+      refreshing : false
     };
     this.url = "http://192.168.100.161/mhs/mhs.php"
     // this.url = "http://192.168.162.248/mhs/mhs.php"
@@ -29,8 +31,9 @@ class Lihat extends Component {
     .then((response)=>response.json())
     .then((json)=>{
       // console.log("hasil :"+JSON.stringify(json.data.result));
-      this.setState({listData:json.data.result});
       // console.log("hasil :"+JSON.stringify(json.data.result[1].id));
+      this.setState({listData:json.data.result});
+      this.setState({userFiltered:json.data.result});
     })
     .catch((error)=>{
       console.log(error);
@@ -47,12 +50,19 @@ class Lihat extends Component {
       console.log(error)
     })
   }
+  cariData(textToSearch){
+    this.setState({
+      userFiltered:this.state.listData.filter(i=>
+        i.nama.toLowerCase().includes(textToSearch.toLowerCase()))
+    })
+  }
   render() {
     return (
       <ScrollView style={style.lihatWrapper}>
-        <View style={style.viewData}> 
+        <View style={style.viewData}>
+        <TextInput onChangeText={text=>this.cariData(text)} style={{backgroundColor:'white', marginBottom:15}} placeholder='Cari Data' autoFocus/>
           {
-            this.state.listData.map((val,index)=>(
+            this.state.userFiltered.map((val,index)=>(
               <Card style={style.cardUtama} key={val.id} onPress={()=>this.props.navigation.navigate('Detail', {id:(val.id),nama:(val.nama),prodi:(val.prodi), nim:(val.nim), alamat:(val.alamat),no_telp:(val.no_telp)})}>
                 <View style={style.cardView}>
                   <Text style={[style.teks, {flex:2}]}>{index+1+". "}{val.nama}</Text>

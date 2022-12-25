@@ -24,6 +24,7 @@ class Tambah extends Component {
       alert('gagal tambah data');
     }else{
       var urlAksi = this.url+"/?op=update&id="+this.props.route.params.id;
+      alert('berhasil update data');
     }
     fetch(urlAksi,{
       method:'post',

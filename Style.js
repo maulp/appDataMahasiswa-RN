@@ -11,7 +11,8 @@ export const style = StyleSheet.create({
     },
     viewForm:{
         flex:2,
-        padding:10
+        padding:10,
+        marginTop:100
     },
     viewData:{
         flex:4

@@ -7,6 +7,7 @@ import Lihat from './Lihat';
 import Update from './Update';
 import Detail from './Detail';
 import Dashboard from './Dashboard';
+import SplashScreen from './SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,8 @@ function App(){
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name='Dashboard' component={Dashboard}></Stack.Screen> */}
+      <Stack.Screen name='SplashScreen' component={SplashScreen} options={{headerShown:false}}></Stack.Screen>
+        <Stack.Screen name='Dashboard' component={Dashboard}></Stack.Screen>
         <Stack.Screen name='Tambah' component={Tambah}></Stack.Screen>
         <Stack.Screen name='Lihat' component={Lihat}></Stack.Screen>
         <Stack.Screen name='Update' component={Update}></Stack.Screen>
