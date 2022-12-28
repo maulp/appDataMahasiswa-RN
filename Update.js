@@ -14,10 +14,10 @@ class Tambah extends Component {
       alamat:this.props.route.params.alamat,
       idEdit:null
     };
-    this.url = "http://192.168.100.161/mhs/mhs.php"
+    // this.url = "http://192.168.100.161/mhs/mhs.php"
     // this.url = "http://192.168.162.248/mhs/mhs.php"
     // this.url = "http://192.168.170.248/mhs/mhs.php"
-    // this.url = "http://192.168.148.248/mhs/mhs.php"
+    this.url = "http://192.168.212.248/mhs/mhs.php"
   }
   klikSimpan(){
     if(this.setState.nama == '' || this.setState.nim == '' || this.setState.prodi == '' || this.setState.no_telp == '' || this.setState.alamat == ''){

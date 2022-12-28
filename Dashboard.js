@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Button, View, Text,StyleSheet, TextInput } from 'react-native';
-
+import { Button, View, Text,StyleSheet, Image} from 'react-native';
 const Dashboard=({navigation})=>{
     return(
-        <View style={style.container}>
+        <View style={[style.container,{backgroundColor:'#acadac'}]}>
         <Text style={{marginBottom:20}}>Details Screen</Text>
 
         {/* <View style={style.btn}>

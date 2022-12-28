@@ -13,16 +13,17 @@ class Tambah extends Component {
       no_telp:'',
       alamat:''
     };
-    this.url = "http://192.168.100.161/mhs/mhs.php"
+    // this.url = "http://192.168.100.161/mhs/mhs.php"
     // this.url = "http://192.168.162.248/mhs/mhs.php"
     // this.url = "http://192.168.170.248/mhs/mhs.php"
-    // this.url = "http://192.168.148.248/mhs/mhs.php"
+    this.url = "http://192.168.212.248/mhs/mhs.php"
   }
   klikSimpan(){
     if(this.setState.nama == '' || this.setState.nim == '' || this.setState.prodi == '' || this.setState.no_telp == '' || this.setState.alamat == ''){
       alert('gagal tambah data');
     }else{
       var urlAksi = this.url+"/?op=create";
+      alert('Data berhasil ditambahkan');
     }
     fetch(urlAksi,{
       method:'post',
@@ -42,7 +43,7 @@ class Tambah extends Component {
   }
   render() {
     return (
-      <View style={style.viewWrapper}>
+      <View style={[style.viewWrapper]}>
         <View style={style.viewForm}>
           {/* teks input nama */}
           <TextInput 

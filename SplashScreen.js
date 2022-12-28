@@ -12,7 +12,7 @@ class SplashScreen extends Component{
     componentDidMount(){
         setTimeout(()=>{
             this.props.navigation.dispatch(StackActions.replace('Dashboard'));
-        },1000);
+        },5000);
     }
 
     render(){

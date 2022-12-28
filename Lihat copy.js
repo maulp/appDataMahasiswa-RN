@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, RefreshControl} from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import { style } from './Style';
 import {Card, TextInput} from 'react-native-paper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -15,13 +15,12 @@ class Lihat extends Component {
       no_telp:'',
       alamat:'',
       listData:[],
-      userFiltered:[],
-      refreshing:false
+      userFiltered:[]
     };
     // this.url = "http://192.168.100.161/mhs/mhs.php"
     // this.url = "http://192.168.162.248/mhs/mhs.php"
     // this.url = "http://192.168.170.248/mhs/mhs.php"
-    this.url = "http://192.168.212.248/mhs/mhs.php"
+    this.url = "http://192.168.234.248/mhs/mhs.php"
   }
   componentDidMount(){
     this.ambilListData()
@@ -56,15 +55,9 @@ class Lihat extends Component {
         i.nama.toLowerCase().includes(textToSearch.toLowerCase()))
     })
   }
-  rifresh = () =>{
-    this.setState({refreshing:true})
-    this.ambilListData().then((response)=>{
-      this.setState({refreshing:false})
-    },1000)
-  }
   render() {
     return (
-      <ScrollView style={style.lihatWrapper} refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={()=>this.rifresh()} />}>
+      <ScrollView style={style.lihatWrapper} refreshControl={refreshing}>
         <View style={style.viewData}>
         <TextInput onChangeText={text=>this.cariData(text)} style={{backgroundColor:'white', marginBottom:15}} placeholder='Cari Data' autoFocus/>
           {

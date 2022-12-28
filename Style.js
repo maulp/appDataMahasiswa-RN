@@ -6,8 +6,8 @@ export const style = StyleSheet.create({
         margin:50
     },
     lihatWrapper:{
-        flex:1,
-        margin:10
+        flex:1
+        // margin:10
     },
     viewForm:{
         flex:2,
@@ -75,7 +75,7 @@ export const style = StyleSheet.create({
         shadowColor:'#470000',
         shadowOffset:{width:0, height:2},
         shadowOpacity:0.2,
-        borderRadius:11
+        borderRadius:5
     },
     cardView:{
         flex:3,
